@@ -1,8 +1,14 @@
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 function App() {
   return (
     <div>
-      <h1>Mar Olas</h1>
+      <Header />
+
       <p>Bienvenido a nuestra tienda online de equipamiento y accesorios de playa.</p>
+
+      <Footer />
     </div>
   );
 }
