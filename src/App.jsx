@@ -1,15 +1,12 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div>
-      <Header />
-
-      <p>Bienvenido a nuestra tienda online de equipamiento y accesorios de playa.</p>
-
-      <Footer />
-    </div>
+    <>
+      <Navbar />
+      <ItemListContainer greeting="¡Bienvenidos a Mar Olas, tranquilidad en cada ola!" />
+    </>
   );
 }
 
