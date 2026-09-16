@@ -3,7 +3,7 @@ import logo from '../assets/logonombresolo.png';
 import './Navbar.css';
 
 function Navbar() {
-  const categorias = ['Hombre', 'Mujer', 'Accesorios'];
+  const categorias = ['Remeras', 'Shorts', 'Buzos', 'Accesorios'];
 
   return (
     <nav className="navbar">
