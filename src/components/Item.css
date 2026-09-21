@@ -36,3 +36,8 @@
   font-size: 0.8rem;
   color: #ccc;
 }
+
+.item-link {
+    text-decoration: none; 
+    color: inherit;
+}
