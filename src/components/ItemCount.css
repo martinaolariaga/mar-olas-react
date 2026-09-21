@@ -1,0 +1,30 @@
+.item-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.item-count button {
+  background-color: #0b7392;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.item-count button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.item-count-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
