@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 function Cart() {
-  const navigate = useNavigate();
-  const { cart, removeItem, clearCart, total } = useCart();
+  const { cart, removeItem, clear, total } = useCart();
 
   if (cart.length === 0) {
     return (
       <div style={{ textAlign: 'center', marginTop: '2rem' }}>
         <h2>Tu carrito está vacío</h2>
+        <Link to="/">Volver al catálogo</Link>
       </div>
     );
   }
@@ -52,13 +52,13 @@ function Cart() {
 
       <h2>Total: ${total}</h2>
 
-<button onClick={clearCart}>
-  Vaciar carrito
-</button>
+      <button onClick={clear}>
+        Vaciar carrito
+      </button>
 
-<button onClick={() => navigate('/checkout')}>
-  Finalizar compra
-</button>
+      <button>
+        Finalizar compra
+      </button>
     </div>
   );
 }
