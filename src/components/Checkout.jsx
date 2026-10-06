@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
 function Checkout() {
-  const { cart, total, clearCart } = useCart();
+  const { cart, total, clear } = useCart();
   const { user, loadingAuth } = useAuth();
   const navigate = useNavigate();
 
@@ -27,14 +27,12 @@ function Checkout() {
   }
 
   if (!user) {
-    navigate('/login');
-    return null;
-  }
+  return <Navigate to="/login" replace />;
+}
 
-  if (cart.length === 0 && !orderId) {
-    navigate('/cart');
-    return null;
-  }
+if (cart.length === 0 && !orderId) {
+  return <Navigate to="/cart" replace />;
+}
 
   if (orderId) {
     return (
@@ -116,7 +114,7 @@ function Checkout() {
 
       setOrderId(orderReference.id);
 
-      clearCart();
+      clear();
     } catch (error) {
       console.error('Error al crear la orden:', error);
       setError(
