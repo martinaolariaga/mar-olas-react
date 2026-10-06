@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
 import './ItemCount.css';
 
-function ItemCount({ stock }) {
+function ItemCount({ stock, product }) {
   const [count, setCount] = useState(0);
+  const { addItem } = useCart();
 
   const increment = () => {
     if (count < stock) {
@@ -16,11 +18,34 @@ function ItemCount({ stock }) {
     }
   };
 
+  const handleAddToCart = () => {
+    if (count > 0) {
+      addItem(product, count);
+      setCount(0);
+    }
+  };
+
   return (
     <div className="item-count">
-      <button onClick={decrement} disabled={count === 0}>-</button>
-      <span className="item-count-value">{count}</span>
-      <button onClick={increment} disabled={count === stock}>+</button>
+      <div className="quantity-controls">
+        <button onClick={decrement} disabled={count === 0}>
+          -
+        </button>
+
+        <span className="item-count-value">{count}</span>
+
+        <button onClick={increment} disabled={count === stock}>
+          +
+        </button>
+      </div>
+
+      <button
+        className="add-to-cart-button"
+        onClick={handleAddToCart}
+        disabled={count === 0}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 }

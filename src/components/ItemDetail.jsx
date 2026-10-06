@@ -13,7 +13,7 @@ function ItemDetail({ producto }) {
                 <p className="item-detail-stock">Stock: {producto.stock}</p>
                 
 
-                <ItemCount stock={producto.stock} />
+                <ItemCount stock={producto.stock} product={producto} />
             </div>
         </div>
     );
